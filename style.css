@@ -1,11 +1,13 @@
 *{
     margin: 0;
     box-sizing: border-box;
-    background: rgb(41, 40, 40);
+}
+body{
+    background-color: rgb(43, 43, 43);
 }
 
 .Criar{
-    background-color: rgba( 0, 0, 0, 0.9);
+    background-color: rgba(15, 15, 15, 0.9);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,4 +16,24 @@
     border-radius: 15px;
     color: white;
     border: 2px solid rgba(30, 143, 255, 0.623);
+}
+
+.Btn1{
+    border-radius: 23px;
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid rgb(60, 188, 247);
+    color: rgb(32, 171, 252);
+    padding: 15px;
+    position: relative;
+    left: 10px;
+    width: 85%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.buttonvoltar{
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid rgb(60, 188, 247);
+    
 }
