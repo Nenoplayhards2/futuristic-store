@@ -841,6 +841,7 @@ header {
 
 .cts div p {
     width: 100%;
+    font-size: 2.5vh;
 }
 
 .cts::-webkit-scrollbar {
