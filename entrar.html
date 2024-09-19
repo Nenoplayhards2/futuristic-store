@@ -3,40 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar</title>
+    <title>Entre na sua conta!</title>
+    <link rel="stylesheet" href="entrar.css">
 </head>
 <body>
-<main>
-<div class="fundo">
-</div>
-    <form>
-    <div class="Criar">
-        <h1 class="CRIAR_conta">Criar Conta</h1>
-    <br><br>
-    <input type="text" placeholder="Seu nome">
-    <br><br>
-    <input type="text" placeholder="Coloque seu E-mail">
-    <br><br>       
-    <input type="password" placeholder="Crie sua Senha" id="Crie">
-    <i class="bi bi-eye" id="Btn-Senha" onclick="mostrarSenha()"></i>
-    <br><br>
-    <div class="box">
-    <label><input type="checkbox"></label><p>Eu li e aceito os
-    <a href="Termos.html"> termos de serviço</a></p>
-    <br><br>
+    <div class="main-login">
+        <div class="left-login"> <h1>Faça login,<br>para continuar comprando nossos produtos.</h1>
+        </div>
+       <div class="rigth-login">
+        <div class="card-login">
+            <h1>LOGIN</h1>      
+            <div class="txt">
+                <label for="usuario">Usuário</label>
+                <input type="text" name="usuario" placeholder="Usuário">
+            </div>
+            <div class="txt">
+            <label for="senha">Senha</label>
+                <input type="password" name="senha" placeholder="Coloque sua senha">
+            </div>
+            <button class="btn_login">Entrar</button>
+        </div>
+       </div>
     </div>
-    <button class="Btn1">Continuar</button>
-    <br><br>
-    <a href="Entrar.html"><button class="buttonvoltar">Voltar</button></a>
-    <br><br>
-    <p>Já tenho uma consta? <a href="Entrar.html">Entrar</a></p>
-</div>
-</form>
-<script src="js/olho.js"></script>
-</main>
-</body>
-<style>
-        @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
-</style>
 </body>
 </html>
