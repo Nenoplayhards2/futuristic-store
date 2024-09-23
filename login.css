@@ -3,37 +3,92 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(43, 43, 43);
+    margin: 0;
 }
 
-.Criar{
-    background-color: rgba(15, 15, 15, 0.9);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 50px;
-    border-radius: 15px;
-    color: white;
-    border: 2px solid rgba(184, 245, 16, 0.623);
+.main-login{
+    width: 100vw;
+    height: 100vw;
+    background:rgb(35, 42, 59) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.left-login h1{
+    color: #77ffc0;
+}
+.rigth-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-login{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #2b1f36;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px black;
+}
+.card-login h1{
+    color: aliceblue;
+    font-weight: 800;
+    margin: 0;
+}
+.txt{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px;
 }
 
-.Btn1{
-    border-radius: 23px;
-    color: #ffffff;
-    background: transparent;
-    border: 2px solid rgb(60, 188, 247);
-    color: rgb(32, 171, 252);
-    padding: 15px;
-    position: relative;
-    left: 10px;
-    width: 85%;
+.txt > input{
+    width: 100%;
+    border: none;
     border-radius: 10px;
-    cursor: pointer;
+    padding: 15px;
+    background: #59456b;
+    color: #77ffc0;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px black;
+    outline: none;
+    box-sizing: border-box;
 }
-.buttonvoltar{
-    color: #ffffff;
-    background: transparent;
-    border: 2px solid rgb(60, 188, 247);
-    
+
+.txt label{
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.txt input::placeholder{
+    color: aliceblue;
+}
+.btn_login{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 800; 
+    letter-spacing: 3px;
+    color: rgb(56, 66, 47);
+    cursor: pointer;
+    background: rgb(120, 206, 120);
 }
