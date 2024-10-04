@@ -81,11 +81,15 @@ nov.addEventListener("click", () => {
 function prim() {
     moveis.style.display = "grid";
     aparelhos.style.display = "none";
+    sel = 0;
+    converter();
 }
 
 function seg() {
     moveis.style.display = "none";
     aparelhos.style.display = "grid";
+    sel = 1;
+    converter();
 }
 
 function ter() {
@@ -254,7 +258,23 @@ setInterval(() => {
     }
     else {
         newd.style.background = "linear-gradient(48deg, rgba(255,66,66,1) 0%, rgba(180,25,25,1) 50%, rgba(96,0,0,1) 100%)";
-        newdes.textContent = "Novo";
+        switch (document.documentElement.lang) {
+            case "en":
+                newdes.textContent = "Novo";
+            break;
+            case "es":
+                newdes.textContent = "Novo";
+            break;
+            case "pt":
+                newdes.textContent = "Novo";
+            break;
+            case "fr":
+                newdes.textContent = "Novo";
+            break;
+            case "ru":
+                newdes.textContent = "Новый";
+            break;
+        }
     }
     if(sch.value.trim() == "") {
         myUL.style.display = "none";
@@ -310,7 +330,25 @@ window.addEventListener("click", () => {
     myUL.style.display = "none";
 })
 
-myLI.addEventListener("click", amp);
+myLI.addEventListener("click", () => {
+    sel = 0;
+    mv.style.color = "#deff65";
+    mv.style.borderColor = "#deff65";
+    apr.style.color = "#ffffff";
+    apr.style.borderColor = "#ffffff";
+    ele.style.color = "#ffffff";
+    ele.style.borderColor = "#ffffff";
+    dv.style.color = "#ffffff";
+    dv.style.borderColor = "#ffffff";
+    nov.style.color = "#ffffff";
+    nov.style.borderColor = "#ffffff";
+    exc.style.display = "none";
+    prim();
+    i1();
+    setTimeout(() => {
+    amp();
+    }, 100)
+});
 
 for (let i = 0; i < 2; i++) {
     pimg[i].style.height = "60%";

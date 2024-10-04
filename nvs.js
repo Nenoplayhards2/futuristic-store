@@ -32,3 +32,5 @@ ppra.innerHTML = `<div class="prod1a pp">
         </div>
         </div>`;
 aparelhos.appendChild(ppra);
+
+const ds = document.querySelector(".ds");

@@ -64,6 +64,7 @@ const descdsh = document.querySelector(".descdsh");
 const img1i = document.querySelector("#img1 img");
 const img2i = document.querySelector("#img2 img");
 const img3i = document.querySelector("#img3 img");
+const offtxt = document.querySelector("#offtxt");
 
 let parc;
 let txtc;
@@ -89,5 +90,6 @@ let seln = 0;
 let esto;
 let vendm = 5;
 let venda = 3;
+let otxt = "";
 
 const prods = [prod1, prod1a];
