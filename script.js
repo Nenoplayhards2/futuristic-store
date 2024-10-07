@@ -81,14 +81,14 @@ nov.addEventListener("click", () => {
 function prim() {
     moveis.style.display = "grid";
     aparelhos.style.display = "none";
-    sel = 0;
+    id = 0;
     converter();
 }
 
 function seg() {
     moveis.style.display = "none";
     aparelhos.style.display = "grid";
-    sel = 1;
+    id = 1;
     converter();
 }
 
@@ -110,23 +110,23 @@ function qui() {
 function amp() {
     switch (true) {
         case mv.style.color == "rgb(222, 255, 101)":
-            sel = selm;
+            id = selm;
         break;
         case apr.style.color == "rgb(222, 255, 101)":
-            sel = sela;
+            id = sela;
         break;
         case ele.style.color == "rgb(222, 255, 101)":
-            sel = sele;
+            id = sele;
         break;
         case dv.style.color == "rgb(222, 255, 101)":
-            sel = seld;
+            id = seld;
         break;
         case nov.style.color == "rgb(222, 255, 101)":
-            sel = seln;
+            id = seln;
         break;
     }
     dc();
-    switch (sel) {
+    switch (id) {
         case 0:
             img1i.src = "xchair.png";
             img2i.src = "x2.png";
@@ -142,18 +142,18 @@ function amp() {
     off.style.display = "none";
     newp.style.display = "none";
     pro.style.display = "none";
-    dsh[sel].style.display = "none";
+    dsh[id].style.display = "none";
     ld.style.opacity = "0";
-    prodtxt[sel].style.display = "none";
+    prodtxt[id].style.display = "none";
     prod.style.width = "100vw";
-    pr[sel].style.display = "none";
+    pr[id].style.display = "none";
     prod.style.top = "13vh";
-    descdsh.textContent = dsh[sel].textContent;
+    descdsh.textContent = dsh[id].textContent;
     for (let i = 0; i < prods.length; i++) {
         prods[i].style.width = "70vw";
         prods[i].style.height = "65vh";
     }
-    pimg[sel].style.height = "80%";
+    pimg[id].style.height = "80%";
     com.style.display = "flex";
     vol.style.display = "flex";
     lg.style.left = "10vw";
@@ -166,17 +166,18 @@ function amp() {
         com.style.right = "0vw";
         vol.style.left = "0vw";
         desc.style.opacity = "1";
-        prc.innerHTML = pr[sel].innerHTML;
-        txtc = vl[sel].textContent.replaceAll(".", "");
+        prc.innerHTML = pr[id].innerHTML;
+        txtc = vl[id].textContent.replaceAll(".", "");
         parc = Math.round(val.toString().replaceAll(".", "") * 1 / 12);
         parc = parc.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
     }, 50);
     setTimeout(() => {
         ld.style.display = "none";
-        btnspv[sel].style.display = "flex";
+        btnspv[id].style.display = "flex";
     }, 300);
-    prods[sel].style.cursor = "auto";
-    txtp.textContent = prodtxt[sel].textContent;
+    prods[id].style.cursor = "auto";
+    txtp.textContent = prodtxt[id].textContent;
+    clearInterval(txi);
 }
 
 prod1.addEventListener("click", () => {
@@ -191,36 +192,36 @@ prod1a.addEventListener("click", () => {
 vol.addEventListener("click", () => {
     newp.style.display = "flex";
     pro.style.display = "flex";
-    dsh[sel].style.display = "block";
+    dsh[id].style.display = "block";
     ld.style.display = "block";
-    prodtxt[sel].style.display = "block";
+    prodtxt[id].style.display = "block";
     prod.style.width = "82vw";
     prod.style.top = "15vh";
-    pr[sel].style.display = "block";
+    pr[id].style.display = "block";
     for (let i = 0; i < prods.length; i++) {
         prods[i].style.width = "25vw";
         prods[i].style.height = "25vw";
     }
-    pimg[sel].style.height = "60%";
+    pimg[id].style.height = "60%";
     com.style.right = "-30vw";
     vol.style.left = "-8vw";
     lg.style.left = "3vw";
     desc.style.opacity = "0";
     prod.scrollTop = 0;
-    btnspv[sel].style.display = "none";
+    btnspv[id].style.display = "none";
     setTimeout(() => {
         ld.style.opacity = "1";
     }, 50)
     setTimeout(() => {
         com.style.display = "none";
         vol.style.display = "none";
-        prods[sel].style.cursor = "pointer";
+        prods[id].style.cursor = "pointer";
         txtp.textContent = "";
         prc.innerHTML = "";
         desc.style.display = "none";
         notact = 0;
         off.style.display = "flex";
-        sel = 0;
+        id = 0;
         sela = 0;
         seld = 0;
         sele = 0;
@@ -228,6 +229,7 @@ vol.addEventListener("click", () => {
         selm = 0;
     }, 300);
     i1();
+    txi = setInterval(txt, 15000);
 })
 
 function myFunction() {
@@ -260,16 +262,16 @@ setInterval(() => {
         newd.style.background = "linear-gradient(48deg, rgba(255,66,66,1) 0%, rgba(180,25,25,1) 50%, rgba(96,0,0,1) 100%)";
         switch (document.documentElement.lang) {
             case "en":
-                newdes.textContent = "Novo";
+                newdes.textContent = "New";
             break;
             case "es":
-                newdes.textContent = "Novo";
+                newdes.textContent = "Nuevo";
             break;
             case "pt":
                 newdes.textContent = "Novo";
             break;
             case "fr":
-                newdes.textContent = "Novo";
+                newdes.textContent = "Nouveau";
             break;
             case "ru":
                 newdes.textContent = "Новый";
@@ -330,8 +332,7 @@ window.addEventListener("click", () => {
     myUL.style.display = "none";
 })
 
-myLI.addEventListener("click", () => {
-    sel = 0;
+myLI[0].addEventListener("click", () => {
     mv.style.color = "#deff65";
     mv.style.borderColor = "#deff65";
     apr.style.color = "#ffffff";
@@ -349,6 +350,26 @@ myLI.addEventListener("click", () => {
     amp();
     }, 100)
 });
+myLI[1].addEventListener("click", () => {
+    sela = btnspv.length - 1;
+    mv.style.color = "#ffffff";
+    mv.style.borderColor = "#ffffff";
+    apr.style.color = "#deff65";
+    apr.style.borderColor = "#deff65";
+    ele.style.color = "#ffffff";
+    ele.style.borderColor = "#ffffff";
+    dv.style.color = "#ffffff";
+    dv.style.borderColor = "#ffffff";
+    nov.style.color = "#ffffff";
+    nov.style.borderColor = "#ffffff";
+    exc.style.display = "none";
+    seg();
+    i1();
+    setTimeout(() => {
+    amp();
+    }, 100)
+});
+
 
 for (let i = 0; i < 2; i++) {
     pimg[i].style.height = "60%";
@@ -364,16 +385,16 @@ function i1() {
     img3.style.backgroundColor = "#00000065";
     img3.style.boxShadow = "0.5vh 0.5vh 0.5vh #000";
     img3.style.borderColor = "#000";
-    switch (sel) {
+    switch (id) {
         case 0:
-            pimg[sel].src = "xchair.png";
+            pimg[id].src = "xchair.png";
         break;
         case 1:
-            pimg[sel].src = "robo.png";
+            pimg[id].src = "robo.png";
         break;
     }
-    if(pimg[sel].style.height != "60%") {
-    pimg[sel].style.height = "80%";
+    if(pimg[id].style.height != "60%") {
+    pimg[id].style.height = "80%";
     }
 }
 
@@ -387,12 +408,12 @@ function i2() {
     img3.style.backgroundColor = "#00000065";
     img3.style.boxShadow = "0.5vh 0.5vh 0.5vh #000";
     img3.style.borderColor = "#000";
-    switch (sel) {
+    switch (id) {
         case 0:
-            pimg[sel].src = "x2.png";
+            pimg[id].src = "x2.png";
         break;
         case 1:
-            pimg[sel].src = "robo2.png";
+            pimg[id].src = "robo2.png";
         break;
     }
 }
@@ -407,12 +428,12 @@ function i3() {
     img1.style.backgroundColor = "#00000065";
     img1.style.boxShadow = "0.5vh 0.5vh 0.5vh #000";
     img1.style.borderColor = "#000";
-    switch (sel) {
+    switch (id) {
         case 0:
-            pimg[sel].src = "x3.png";
+            pimg[id].src = "x3.png";
         break;
         case 1:
-            pimg[sel].src = "robo3.png";
+            pimg[id].src = "robo3.png";
         break;
     }
 }
@@ -704,7 +725,7 @@ cpr.addEventListener("click", () => {
     }
     else if(quant.textContent > 0) {
         quant.textContent -= 1;
-        switch (sel) {
+        switch (id) {
             case 0:
                 vendm++;
                 vds = vendm;
@@ -779,14 +800,42 @@ function fic2() {
     notact += 2;
     cc = 1;
 }
-
+dc();
 function dc() {
-    switch (sel) {
+    switch (id) {
         case 0:
-            p1.textContent = "X-Chair é uma cadeira muito confortável, parecida com uma cadeira de carro, mas que tem rodinhas para ir e voltar, além de que ela pode se reposicionar para cima e para baixo, possuindo os botoẽs para aumentar e diminuir a intensidade da vibração, contendo o analógico para a cadeira se mexer e dois porta copos.";
-            p2.textContent = "Materiais e tecnologias: 	Plástico, Bateria, IA, Sensores, Couro, Lã, Ferro, Borracha, Fio de Cobre, Caixinha de som e hidráulica.";
-            p3.textContent = "IA tem sensores para auxiliar a pessoa a não bater com velocidade máxima de 5 km/h.";
-            p4.textContent = "Pode-se ativar e desativar a vibração, posicionar a cadeira do jeito que o usuário quiser e tem setinhas para rotacioná-la.";
+            switch (document.documentElement.lang) {
+                case "en":
+                    p1.textContent = "X-Chair is a very comfortable chair, similar to a car seat, but with wheels to move it back and forth, and it can be repositioned up and down, has buttons to increase and decrease the intensity of the vibration, contains an analog stick for the chair to move and two cup holders.";
+                    p2.textContent = "Materials and technologies: Plastic, Battery, AI, Sensors, Leather, Wool, Iron, Rubber, Copper Wire, Speaker and Hydraulics.";
+                    p3.textContent = "AI has sensors to help the person avoid crashing at a maximum speed of 5 km/h.";
+                    p4.textContent = "You can activate and deactivate the vibration, position the chair the way the user wants and it has arrows to rotate it.";
+                break;
+                case "es":
+                    p1.textContent = "X-Chair es una silla muy cómoda, similar a un asiento de coche, pero tiene ruedas para ir y venir, además puede reposicionarse hacia arriba y hacia abajo, Con botones para aumentar y disminuir la intensidad de la vibración, que contiene la palanca analógica para mover la silla y dos portavasos.";
+                    p2.textContent = "Materiales y tecnologías: Plástico, Batería, IA, Sensores, Cuero, Lana, Hierro, Caucho, Cable de cobre, Altavoz e hidráulica.";
+                    p3.textContent = "La IA tiene sensores para ayudar a las personas a evitar colisiones a una velocidad máxima de 5 km/h.";
+                    p4.textContent = "Puedes activar y desactivar la vibración, posicionar la silla como quieras y hay flechas para girarla.";
+                break;
+                case "pt":
+                    p1.textContent = "X-Chair é uma cadeira muito confortável, parecida com uma cadeira de carro, mas que tem rodinhas para ir e voltar, além de que ela pode se reposicionar para cima e para baixo, possuindo os botoẽs para aumentar e diminuir a intensidade da vibração, contendo o analógico para a cadeira se mexer e dois porta copos.";
+                    p2.textContent = "Materiais e tecnologias: 	Plástico, Bateria, IA, Sensores, Couro, Lã, Ferro, Borracha, Fio de Cobre, Caixinha de som e hidráulica.";
+                    p3.textContent = "IA tem sensores para auxiliar a pessoa a não bater com velocidade máxima de 5 km/h.";
+                    p4.textContent = "Pode-se ativar e desativar a vibração, posicionar a cadeira do jeito que o usuário quiser e tem setinhas para rotacioná-la.";
+                break;
+                case "fr":
+                    p1.textContent = "X-Chair est une chaise très confortable, semblable à un siège d'auto, mais il a des roues pour aller et venir, en plus il peut se repositionner de haut en bas, avec boutons pour augmenter et diminuer l'intensité des vibrations, contenant l'analogue pour déplacer la chaise et deux porte-gobelets.";
+                    p2.textContent = "Matériaux et technologies : plastique, batterie, IA, capteurs, cuir, laine, fer, caoutchouc, fil de cuivre, haut-parleur et hydraulique.";
+                    p3.textContent = "L'IA dispose de capteurs pour aider les gens à éviter de s'écraser à une vitesse maximale de 5 km/h.";
+                    p4.textContent = "Vous pouvez activer et désactiver la vibration, positionner le fauteuil comme vous le souhaitez et il y a des flèches pour le faire pivoter.";
+                break;
+                case "ru":
+                    p1.textContent = "В комплект входит аналог подвижного кресла и два подстаканника.";
+                    p2.textContent = "Материалы и технологии: пластик, аккумулятор, искусственный интеллект, датчики, кожа, шерсть, железо, резина, медная проволока, динамик и гидравлика.";
+                    p3.textContent = "У ИИ есть датчики, которые помогают людям избежать столкновений на максимальной скорости 5 км/ч.";
+                    p4.textContent = "Вы можете активировать и деактивировать вибрацию, расположить кресло так, как хотите, и есть стрелки для его вращения.";
+                break;
+            }
             esto = 14;
             vds = vendm;
             if(notact == 0) {
@@ -794,10 +843,38 @@ function dc() {
             }
         break;
         case 1:
-            p1.textContent = "Ultra-Clean veio com mais uma incrível inovação para o mundo da limpeza criando o Robô Aspirador de Pó Smart, um aparelho com tecnologia de ponta que deixará a sua casa limpa como deveria ser.";
-            p2.textContent = "Contém uma IA para auxiliar na limpeza.";
-            p3.textContent = "A bateria dura em média 12 horas.";
-            p4.textContent = "O robô possui uma blindagem de alta qualidade para resistir a danos.";
+            switch (document.documentElement.lang) {
+                case "en":
+                    p1.textContent = "Ultra-Clean has come up with another incredible innovation for the world of cleaning by creating the Smart Robot Vacuum Cleaner, a cutting-edge technology device that will leave your home as clean as it should be.";
+                    p2.textContent = "Contains an AI to assist with cleaning.";
+                    p3.textContent = "The battery lasts an average of 12 hours.";
+                    p4.textContent = "The robot has high-quality armor to resist damage.";
+                break;
+                case "es":
+                    p1.textContent = "Ultra-Clean llegó con otra increíble innovación para el mundo de la limpieza, creando el Robot Aspirador Inteligente, un dispositivo con tecnología de punta que dejará tu hogar tan limpio como debe estar.";
+                    p2.textContent = "Contiene una IA para ayudar con la limpieza.";
+                    p3.textContent = "La batería dura una media de 12 horas.";
+                    p4.textContent = "El robot tiene una armadura de alta calidad para resistir daños.";
+                break;
+                case "pt":
+                    p1.textContent = "Ultra-Clean veio com mais uma incrível inovação para o mundo da limpeza criando o Robô Aspirador de Pó Smart, um aparelho com tecnologia de ponta que deixará a sua casa limpa como deveria ser.";
+                    p2.textContent = "Contém uma IA para auxiliar na limpeza.";
+                    p3.textContent = "A bateria dura em média 12 horas.";
+                    p4.textContent = "O robô possui uma blindagem de alta qualidade para resistir a danos.";
+                break;
+                case "fr":
+                    p1.textContent = "Ultra-Clean est venu avec une autre innovation incroyable pour le monde du nettoyage, créant le Smart Robot Vacuum Cleaner, un appareil doté d'une technologie de pointe qui laissera votre maison aussi propre qu'elle devrait l'être.";
+                    p2.textContent = "Contient une IA pour aider au nettoyage.";
+                    p3.textContent = "La batterie dure en moyenne 12 heures.";
+                    p4.textContent = "Le robot dispose d'une armure de haute qualité pour résister aux dommages.";
+                break;
+                case "ru":
+                    p1.textContent = "Компания Ultra-Clean представила еще одну невероятную инновацию в мире уборки, создав робот-пылесос Smart Robot, устройство с передовыми технологиями, которое сделает ваш дом настолько чистым, насколько он должен быть.";
+                    p2.textContent = "Содержит ИИ для помощи в уборке.";
+                    p3.textContent = "Батареи хватает в среднем на 12 часов.";
+                    p4.textContent = "Робот имеет качественную броню, устойчивую к повреждениям.";
+                break;
+            }
             esto = 29;
             vds = venda;
             if(notact == 0) {
